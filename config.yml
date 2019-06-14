@@ -1,0 +1,28 @@
+server:
+  name: tinyUrl
+  port: 9069
+
+# 日志文件目录及debug级别
+log:
+  dir: ./logs
+  console: true
+  level: debug
+
+# redis 相关配置
+redis:
+  host: 127.0.0.1:6379
+  password:
+  poolsize:
+
+# mongodb 相关配置
+mongo:
+  host: 127.0.01:27017
+  user: yangping
+  password: 123456
+  poolsize: 4096
+  dbName: test
+
+# 转换相关配置
+convert:
+  # 进制转换字符串
+  binaryStr: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ

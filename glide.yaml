@@ -1,0 +1,38 @@
+package: tinyUrl
+ignore:
+- golang.org/x
+- google.golang.org/grpc
+import:
+- package: github.com/gin-gonic/gin
+  version: ~1.3.0
+- package: github.com/globalsign/mgo
+- package: gopkg.in/natefinch/lumberjack.v2
+  version: ~2.1.0
+- package: github.com/tealeg/xlsx
+- package: github.com/satori/go.uuid
+  version: ~1.2.0
+- package: github.com/go-redis/redis
+  version: ~6.14.1
+- package: github.com/Shopify/sarama
+  version: ~1.18.0
+- package: github.com/olivere/elastic
+  version: ~6.2.5
+- package: github.com/bsm/sarama-cluster
+  version: ~2.1.15
+- package: github.com/hashicorp/consul
+  version: ~1.4.0
+  subpackages:
+  - api
+- package: github.com/micro/go-micro
+  version: ~0.14.0
+- package: github.com/micro/protoc-gen-micro
+  version: ~0.4.0
+- package: github.com/golang/protobuf
+  subpackages:
+  - protoc-gen-go
+- package: go.uber.org/zap
+  version: ~1.9.1
+- package: github.com/henrylee2cn/teleport
+  version: ~4.1.1
+- package: github.com/qiniu/api.v7
+  version: ~7.2.5
