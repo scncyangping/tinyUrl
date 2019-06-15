@@ -66,14 +66,20 @@ func UrlTransform(ctx *gin.Context) {
 	tinyInfo.TinyUrl = tinyUrl
 	tinyInfo.Type = constants.ConvertDefault
 
-	if err = tinyDao.AddTinyInfo(&tinyInfo); err != nil {
-		http.SendFailureError(ctx, result, err)
-	} else {
-		// 放在Redis中
-		addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
-		result.Data = tinyInfo.TinyUrl
-		http.SendSuccessRep(ctx, result)
-	}
+	// 自动生成的不入库 只存放于Redis当中
+	//if err = tinyDao.AddTinyInfo(&tinyInfo); err != nil {
+	//	http.SendFailureError(ctx, result, err)
+	//} else {
+	//	// 放在Redis中
+	//	addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
+	//	result.Data = tinyInfo.TinyUrl
+	//	http.SendSuccessRep(ctx, result)
+	//}
+
+	// 放在Redis中
+	addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
+	result.Data = tinyInfo.TinyUrl
+	http.SendSuccessRep(ctx, result)
 
 }
 
@@ -177,7 +183,7 @@ func checkLongUrl(longUrl string) (bool, string) {
 	redisKey = fmt.Sprintf("%s:%s:%s", constants.SCNCYS, constants.LongUrl, longUrl)
 
 	// 查询此短链是否存在 存在直接返回 -- Redis
-	if str, err = getTinyUrlFromRedis(redisKey); err == nil {
+	if str, err = getRedisKey(redisKey, false); err == nil {
 		return true, str
 	}
 
@@ -200,7 +206,7 @@ func addLongUrlRedisKey(longUrl, tinyUrl, id string) (bool, error) {
 	// 将这一条记录放在Redis当中
 
 	str = tinyUrl + constants.UnderLine + id
-	err = redis.SetByTtl(redisKey, str, constants.ExpireTime)
+	err = redis.SetByTtl(redisKey, str, config.Base.Convert.LongUrlExpire)
 
 	if err != nil {
 		return false, err
@@ -222,7 +228,7 @@ func checkTinyUrl(tinyUrl string, checkDb bool) (bool, string) {
 	redisKey = fmt.Sprintf("%s:%s:%s", constants.SCNCYS, constants.TinyUrl, tinyUrl)
 
 	// 查询此短链是否存在 存在直接返回 -- Redis
-	if str, err := getTinyUrlFromRedis(redisKey); err == nil {
+	if str, err := getRedisKey(redisKey, true); err == nil {
 		return true, str
 	}
 
@@ -236,7 +242,7 @@ func checkTinyUrl(tinyUrl string, checkDb bool) (bool, string) {
 
 			str := t.LongUrl + constants.UnderLine + t.Id
 
-			err := redis.SetByTtl(redisKey, str, constants.ExpireTime)
+			err := redis.SetByTtl(redisKey, str, config.Base.Convert.LongUrlExpire)
 
 			if err != nil {
 
@@ -253,14 +259,14 @@ func checkTinyUrl(tinyUrl string, checkDb bool) (bool, string) {
  * author : yangping
  * desc : 获取Redis的值,若存在则更新过期时间
  */
-func getTinyUrlFromRedis(redisKey string) (string, error) {
+func getRedisKey(redisKey string, upExpire bool) (string, error) {
 	var (
 		tinyUrl string
 	)
 
 	tinyUrl = redis.Get(redisKey)
 
-	if tinyUrl != constants.EmptyStr {
+	if tinyUrl != constants.EmptyStr && upExpire {
 
 		if err := redis.Expire(redisKey, constants.ExpireTime); err != nil {
 			return constants.EmptyStr, errors.New("update expire time error")

@@ -26,3 +26,7 @@ mongo:
 convert:
   # 进制转换字符串
   binaryStr: 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+  # 长链接过期时间
+  longUrlExpire: 60
+  # 短链接过期时间
+  tinyUrlExpire: 60

@@ -12,16 +12,24 @@
 
 ```
 GET http://localhost:9069/v1/api/tiny/url?longUrl=http://www.baidu.com
+
+
+测试地址:
+http://server.scncys.cn/v1/api/tiny/url?longUrl=http://www.baidu.com
 ```
 
 2. 自定义短链
 
 ```
 GET http://localhost:9069/v1/api/tiny/url/custom?longUrl=http://www.baidu.com&tinyUrl=test
+
+测试地址: http://server.scncys.cn/v1/api/tiny/url/custom?longUrl=http://www.baidu.com&tinyUrl=test
 ```
 
 3. 访问短链(需自己配置访问路径,这儿为了方便就这么写了)
 
 ```
 http://localhost:9069/v1/api/tiny/url/go?tinyUrl=7NvKXGoh0ze
+
+测试地址: http://server.scncys.cn/短链接
 ```
