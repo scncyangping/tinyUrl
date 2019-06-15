@@ -186,7 +186,6 @@ func checkLongUrl(longUrl string) (bool, string) {
 	if str, err = getRedisKey(redisKey, false); err == nil {
 		return true, str
 	}
-
 	return false, constants.EmptyStr
 }
 
@@ -266,12 +265,15 @@ func getRedisKey(redisKey string, upExpire bool) (string, error) {
 
 	tinyUrl = redis.Get(redisKey)
 
-	if tinyUrl != constants.EmptyStr && upExpire {
+	if tinyUrl != constants.EmptyStr {
 
-		if err := redis.Expire(redisKey, constants.ExpireTime); err != nil {
-			return constants.EmptyStr, errors.New("update expire time error")
+		if upExpire {
+			if err := redis.Expire(redisKey, constants.ExpireTime); err != nil {
+				return constants.EmptyStr, errors.New("update expire time error")
+			}
 		}
 		return tinyUrl, nil
+
 	} else {
 		return constants.EmptyStr, errors.New("value does not exist")
 	}
