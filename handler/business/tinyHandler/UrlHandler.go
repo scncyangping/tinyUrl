@@ -164,8 +164,8 @@ func Redirect4TinyUrl(ctx *gin.Context) {
 		ctx.Redirect(http.StatusFound, array[constants.ZERO])
 		return
 	}
-	result.Code = http.StatusNotFound
-	http.SendSuccess(ctx)
+	result.Data = "url not found"
+	http.SendFailureRep(ctx, result)
 }
 
 /*
