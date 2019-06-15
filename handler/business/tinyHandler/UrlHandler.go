@@ -52,7 +52,7 @@ func UrlTransform(ctx *gin.Context) {
 
 	// 查询此短链是否存在 存在直接返回 -- Redis
 	if isExist, _ := checkLongUrl(tinyDto.LongUrl); isExist {
-		result.Data = "此短链已存在"
+		result.Data = "此长链已存在"
 		http.SendSuccessRep(ctx, result)
 		return
 	}
@@ -76,9 +76,15 @@ func UrlTransform(ctx *gin.Context) {
 	//	http.SendSuccessRep(ctx, result)
 	//}
 
-	// 放在Redis中
+	// 长链Redis中
 	addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
-	result.Data = tinyInfo.TinyUrl
+
+	// 短链放Redis中
+	addTinyUrlRedisKey(tinyInfo.TinyUrl, tinyInfo.LongUrl, tinyInfo.Id)
+	result.Data = &dto.TinyDto{
+		LongUrl: tinyInfo.LongUrl,
+		TinyUrl: tinyInfo.TinyUrl,
+	}
 	http.SendSuccessRep(ctx, result)
 
 }
@@ -106,6 +112,14 @@ func UrlTransformCustom(ctx *gin.Context) {
 		http.SendFailureRep(ctx, result)
 		return
 	}
+
+	// 查询此长链是否存在 存在直接返回 -- Redis
+	if isExist, _ := checkLongUrl(tinyDto.LongUrl); isExist {
+		result.Data = "此长链已存在"
+		http.SendSuccessRep(ctx, result)
+		return
+	}
+
 	// 查询此短链是否存在 存在直接返回 -- Redis
 	// 自定义短链接会校验DB
 	if isExist, _ := checkTinyUrl(tinyDto.TinyUrl, true); isExist {
@@ -124,9 +138,17 @@ func UrlTransformCustom(ctx *gin.Context) {
 	if err = tinyDao.AddTinyInfo(&tinyInfo); err != nil {
 		http.SendFailureError(ctx, result, err)
 	} else {
-		// 放在Redis中
+		// 长链Redis中
 		addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
-		result.Data = tinyInfo.TinyUrl
+
+		// 短链放Redis中
+		addTinyUrlRedisKey(tinyInfo.TinyUrl, tinyInfo.LongUrl, tinyInfo.Id)
+
+		result.Data = &dto.TinyDto{
+			LongUrl: tinyInfo.LongUrl,
+			TinyUrl: tinyInfo.TinyUrl,
+		}
+
 		http.SendSuccessRep(ctx, result)
 	}
 }
@@ -216,6 +238,30 @@ func addLongUrlRedisKey(longUrl, tinyUrl, id string) (bool, error) {
 /*
  * date : 2019-06-14
  * author : yangping
+ * desc : 添加短链缓存
+ */
+func addTinyUrlRedisKey(tinyUrl, longUrl, id string) (bool, error) {
+	var (
+		redisKey string
+		str      string
+		err      error
+	)
+
+	redisKey = fmt.Sprintf("%s:%s:%s", constants.SCNCYS, constants.TinyUrl, tinyUrl)
+	// 将这一条记录放在Redis当中
+
+	str = longUrl + constants.UnderLine + id
+	err = redis.SetByTtl(redisKey, str, config.Base.Convert.TinyUrlExpire)
+
+	if err != nil {
+		return false, err
+	}
+	return true, nil
+}
+
+/*
+ * date : 2019-06-14
+ * author : yangping
  * desc : 校验Redis是否存在此短链接对应key 可设置是否校验DB
  */
 func checkTinyUrl(tinyUrl string, checkDb bool) (bool, string) {
@@ -229,27 +275,19 @@ func checkTinyUrl(tinyUrl string, checkDb bool) (bool, string) {
 	// 查询此短链是否存在 存在直接返回 -- Redis
 	if str, err := getRedisKey(redisKey, true); err == nil {
 		return true, str
-	}
-
-	if checkDb {
-		// 若 Redis 不存在此key, 查询DB内是否有对应key
-		tinyId := strconv.Itoa(convert.AnyToDecimal(tinyUrl))
-
-		t, error := tinyDao.GetTinyInfoById(tinyId)
-		// 将这一条记录放在Redis当中
-		if error == nil {
-
-			str := t.LongUrl + constants.UnderLine + t.Id
-
-			err := redis.SetByTtl(redisKey, str, config.Base.Convert.LongUrlExpire)
-
-			if err != nil {
-
+	} else {
+		if checkDb {
+			// 若 Redis 不存在此key, 查询DB内是否有对应key
+			tinyId := strconv.Itoa(convert.AnyToDecimal(tinyUrl))
+			t, error := tinyDao.GetTinyInfoById(tinyId)
+			// 将这一条记录放在Redis当中
+			if error == nil {
+				addTinyUrlRedisKey(t.TinyUrl, t.LongUrl, t.Id)
+				str := t.LongUrl + constants.UnderLine + t.Id
+				return true, str
 			}
-			return true, str
 		}
 	}
-
 	return false, constants.EmptyStr
 }
 
