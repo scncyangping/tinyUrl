@@ -21,7 +21,45 @@ import (
 	"tinyUrl/domain/dao/tinyDao"
 	"tinyUrl/domain/dto"
 	"tinyUrl/domain/entity"
+	"tinyUrl/domain/vo"
 )
+
+/*
+ * date : 2019-06-15
+ * author : yangping
+ * desc : 对应短链获取计数
+ */
+func UrlBaseInfo(ctx *gin.Context) {
+	var (
+		tinyDto dto.TinyDto
+		convert = util.NewBinaryConvert(config.Base.Convert.BinaryStr)
+		err     error
+		// 初始化返回结构体
+		result = http.Instance()
+	)
+	// 请求参数校验
+	if err = ctx.Bind(&tinyDto); err != nil ||
+		tinyDto.TinyUrl == constants.EmptyStr {
+		result.Code = http.ParameterConvertError
+		http.SendFailureRep(ctx, result)
+		return
+	}
+
+	// 若 Redis 不存在此key, 查询DB内是否有对应key
+	tinyId := strconv.Itoa(convert.AnyToDecimal(tinyDto.TinyUrl))
+
+	if t, err := tinyDao.GetTinyInfoById(tinyId); err != nil {
+		result.Code = http.QueryDBError
+		http.SendFailureRep(ctx, result)
+	} else {
+		result.Data = &vo.TinyVO{
+			LongUrl: t.LongUrl,
+			TinyUrl: t.TinyUrl,
+			Count:   t.Count,
+		}
+		http.SendSuccessRep(ctx, result)
+	}
+}
 
 /*
  * date : 2019-06-14
@@ -66,27 +104,22 @@ func UrlTransform(ctx *gin.Context) {
 	tinyInfo.TinyUrl = tinyUrl
 	tinyInfo.Type = constants.ConvertDefault
 
-	// 自动生成的不入库 只存放于Redis当中
-	//if err = tinyDao.AddTinyInfo(&tinyInfo); err != nil {
-	//	http.SendFailureError(ctx, result, err)
-	//} else {
-	//	// 放在Redis中
-	//	addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
-	//	result.Data = tinyInfo.TinyUrl
-	//	http.SendSuccessRep(ctx, result)
-	//}
+	if err = tinyDao.AddTinyInfo(&tinyInfo); err != nil {
+		http.SendFailureError(ctx, result, err)
+	} else {
+		// 放在Redis中
+		// 长链Redis中
+		addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
 
-	// 长链Redis中
-	addLongUrlRedisKey(tinyInfo.LongUrl, tinyInfo.TinyUrl, tinyInfo.Id)
+		// 短链放Redis中
+		addTinyUrlRedisKey(tinyInfo.TinyUrl, tinyInfo.LongUrl, tinyInfo.Id)
 
-	// 短链放Redis中
-	addTinyUrlRedisKey(tinyInfo.TinyUrl, tinyInfo.LongUrl, tinyInfo.Id)
-	result.Data = &dto.TinyDto{
-		LongUrl: tinyInfo.LongUrl,
-		TinyUrl: tinyInfo.TinyUrl,
+		result.Data = &dto.TinyDto{
+			LongUrl: tinyInfo.LongUrl,
+			TinyUrl: tinyInfo.TinyUrl,
+		}
+		http.SendSuccessRep(ctx, result)
 	}
-	http.SendSuccessRep(ctx, result)
-
 }
 
 /*

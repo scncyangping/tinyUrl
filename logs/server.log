@@ -11368,3 +11368,8 @@
 {"level":"INFO","ts":"2019-06-15 01:35:08","caller":"middleware/middleware.go:36","msg":"GET request /v1/api/tiny/url/custom?longUrl=https://www.baidu.com&tinyUrl=test1 [c0c309f6-8eca-11e9-bdc6-8c8590c910ef] from [::1]: "}
 {"level":"INFO","ts":"2019-06-15 01:35:08","caller":"http/http.go:121","msg":"Response [c0c309f6-8eca-11e9-bdc6-8c8590c910ef] To Client: &{200 OK test1}"}
 {"level":"INFO","ts":"2019-06-15 01:35:22","caller":"middleware/middleware.go:36","msg":"GET request /v1/api/tiny/url/go?tinyUrl=test1 [c9945c88-8eca-11e9-bdc6-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2019-06-15 11:29:10","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 132.232.140.107:6379"}
+{"level":"INFO","ts":"2019-06-15 11:29:10","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@132.232.140.107:27017/admin"}
+{"level":"INFO","ts":"2019-06-15 11:29:36","caller":"middleware/middleware.go:36","msg":"GET request /v1/api/tiny/url/?longUrl=http://www.baidu.com [ccc2a72c-8f1d-11e9-a1da-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2019-06-15 11:30:05","caller":"http/http.go:119","msg":"Response [ccc2a72c-8f1d-11e9-a1da-8c8590c910ef] To Client: &{200 OK 7NwupnWQfqo}"}
+{"level":"INFO","ts":"2019-06-15 11:30:30","caller":"middleware/middleware.go:36","msg":"GET request /v1/api/tiny/url/?longUrl=http://www.baidu.com [ed484de4-8f1d-11e9-a1da-8c8590c910ef] from [::1]: "}

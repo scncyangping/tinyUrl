@@ -15,4 +15,5 @@ func UrlRoute(router *gin.RouterGroup) {
 	router.GET("/", tinyHandler.UrlTransform)
 	router.GET("/custom", tinyHandler.UrlTransformCustom)
 	router.GET("/go", tinyHandler.Redirect4TinyUrl)
+	router.GET("/info", tinyHandler.UrlBaseInfo)
 }

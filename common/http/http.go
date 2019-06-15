@@ -28,6 +28,7 @@ const (
 	ParameterConvertError = 2002
 	// DataBase Error
 	InitDataBaseError = 3001
+	QueryDBError      = 3002
 )
 
 const (
@@ -58,6 +59,7 @@ var statusText = map[int]string{
 	RequestCheckTokenError:    "Token Is Not Exists, Please Login",
 	ParameterConvertError:     "Parameter Error, Please Check Parameter",
 	InitDataBaseError:         "Init DataBase Error",
+	QueryDBError:              "Query DataBase Error",
 }
 
 // StatusText returns a text for the HTTP status code. It returns the empty
