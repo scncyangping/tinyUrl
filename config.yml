@@ -20,7 +20,7 @@ mongo:
   user: yangping
   password: 123456
   poolsize: 4096
-  dbName: test
+  dbName: tiny_url
 
 # 转换相关配置
 convert:
@@ -30,3 +30,7 @@ convert:
   longUrlExpire: 60
   # 短链接过期时间
   tinyUrlExpire: 60
+jwt:
+  jwtSecret: 123
+  jwtExpireTime: 20
+  issuer: YaPi

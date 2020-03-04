@@ -44,11 +44,11 @@ const (
 	// 短链生成方式	自定义
 	ConvertCustom = "custom"
 	// sign
-	SCNCYS = "scncys"
+	URL = "url"
 	// tiny key
-	TinyUrl = "tiny:url"
+	TinyUrl = "tiny"
 	// long key
-	LongUrl = "long:url"
+	LongUrl = "long"
 	// 过期时间 s
 	ExpireTime = 60 * 1
 )
@@ -56,4 +56,13 @@ const (
 // 数据库表  mongodb
 const (
 	TinyInfo = "tiny_info"
+	User     = "user"
+	JwtToken = "jwt_token"
+)
+
+// 默认配置参数
+const (
+	JwtSecret     = "scncysyp"
+	JwtExpireTime = 3600
+	Issuer        = "YaPi"
 )

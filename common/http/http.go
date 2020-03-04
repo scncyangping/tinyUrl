@@ -21,14 +21,19 @@ const (
 	StatusInternalServerError = 500
 
 	// Request Error
-	RequestParameterError  = 1001
-	RequestCheckTokenError = 1002
+	RequestParameterError    = 1001
+	RequestCheckTokenError   = 1002
+	RequestCheckTokenTimeOut = 1003
+	RequestTokenNotFount     = 1004
+	CreateTokenError         = 1005
 	// System  Error
 	DataConvertError      = 2001
 	ParameterConvertError = 2002
 	// DataBase Error
 	InitDataBaseError = 3001
 	QueryDBError      = 3002
+	UserNotFound      = 3003
+	AddUserError      = 3004
 )
 
 const (
@@ -60,6 +65,11 @@ var statusText = map[int]string{
 	ParameterConvertError:     "Parameter Error, Please Check Parameter",
 	InitDataBaseError:         "Init DataBase Error",
 	QueryDBError:              "Query DataBase Error",
+	RequestCheckTokenTimeOut:  "request check token time out",
+	RequestTokenNotFount:      "request token not found, please login first",
+	UserNotFound:              "user not found",
+	CreateTokenError:          "create token error",
+	AddUserError:              "add user error",
 }
 
 // StatusText returns a text for the HTTP status code. It returns the empty

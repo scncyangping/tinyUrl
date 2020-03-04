@@ -8,6 +8,7 @@ import (
 	"tinyUrl/config"
 	"tinyUrl/config/db/mongo"
 	"tinyUrl/config/db/redis"
+	"tinyUrl/config/global"
 	"tinyUrl/config/log"
 	"tinyUrl/routes"
 )
@@ -17,6 +18,7 @@ func init() {
 	config.Init()
 	redis.Init()
 	mongo.Init()
+	global.Init()
 }
 
 func main() {

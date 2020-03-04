@@ -2,6 +2,7 @@ package business
 
 import (
 	"github.com/gin-gonic/gin"
+	"tinyUrl/handler/business"
 	"tinyUrl/routes/business/tinyUrl"
 )
 
@@ -14,8 +15,11 @@ func InitBusinessRoute(router *gin.RouterGroup) {
 
 	// 鉴权中间件
 	// router.Use(middleware.TokenAuthMiddleware())
-
 	tinyGroup := router.Group("/tiny")
-
 	tinyUrl.InitTinyUrlRoute(tinyGroup)
+
+	router.GET("/go", business.Redirect4TinyUrl)
+	router.POST("/login", business.Login)
+	router.POST("/register", business.Register)
+
 }

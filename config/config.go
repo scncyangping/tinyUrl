@@ -8,6 +8,7 @@ import (
 	"strings"
 	"tinyUrl/common/constants"
 	"tinyUrl/config/db/confpo"
+	"tinyUrl/config/global/global_po"
 )
 
 var (
@@ -24,12 +25,20 @@ type Server struct {
 }
 
 type baseConfig struct {
-	Server  Server
-	Log     confpo.Log
-	Redis   confpo.Redis
-	Mongo   confpo.Mongo
-	Mysql   confpo.Mysql
+	// 服务设置
+	Server Server
+	// 日志设置
+	Log confpo.Log
+	// redis设置
+	Redis confpo.Redis
+	// mongodb 设置
+	Mongo confpo.Mongo
+	// mysql 设置
+	Mysql confpo.Mysql
+	// 转换参数设置
 	Convert confpo.BinaryConvert
+	// Jwt设置
+	Jwt global_po.Jwt
 }
 
 func SetConfFile(file string) {

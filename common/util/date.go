@@ -26,7 +26,7 @@ func GetNowDateFormat() string {
 	return t.Format("2006-01-02")
 }
 
-func GetNowTimestap() int64 {
+func GetNowTimeStap() int64 {
 	return time.Now().Unix()
 }
 

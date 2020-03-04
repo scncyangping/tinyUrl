@@ -6,9 +6,13 @@
 */
 package tinyUrl
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"tinyUrl/common/middleware"
+)
 
 func InitTinyUrlRoute(router *gin.RouterGroup) {
+	router.Use(middleware.TokenAuthMiddleware())
 	tinyUrl := router.Group("/url")
 	UrlRoute(tinyUrl)
 }

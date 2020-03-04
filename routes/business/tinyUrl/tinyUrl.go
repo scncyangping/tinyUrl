@@ -8,12 +8,13 @@ package tinyUrl
 
 import (
 	"github.com/gin-gonic/gin"
-	"tinyUrl/handler/business/tinyHandler"
+	"tinyUrl/handler/business"
 )
 
 func UrlRoute(router *gin.RouterGroup) {
-	router.GET("/", tinyHandler.UrlTransform)
-	router.GET("/custom", tinyHandler.UrlTransformCustom)
-	router.GET("/go", tinyHandler.Redirect4TinyUrl)
-	router.GET("/info", tinyHandler.UrlBaseInfo)
+	router.POST("/", business.UrlTransform)
+
+	router.POST("/custom", business.UrlTransformCustom)
+
+	router.GET("/info", business.UrlBaseInfo)
 }

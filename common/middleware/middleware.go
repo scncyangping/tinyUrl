@@ -10,10 +10,12 @@ import (
 	"bytes"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
+	"time"
 	"tinyUrl/common/constants"
 	"tinyUrl/common/http"
 	"tinyUrl/common/util"
 	"tinyUrl/config/log"
+	"tinyUrl/domain/dto"
 )
 
 /*
@@ -50,6 +52,8 @@ func TokenAuthMiddleware() gin.HandlerFunc {
 		var (
 			token    string
 			response = http.Instance()
+			errFlag  int
+			session  = &dto.Session{}
 		)
 		token = c.Request.FormValue("API_TOKEN")
 		if token == constants.EmptyStr {
@@ -57,21 +61,32 @@ func TokenAuthMiddleware() gin.HandlerFunc {
 		}
 		if token == constants.EmptyStr {
 			c.Abort()
-			response.SetCode(http.RequestCheckTokenError)
-			response.SetMsg(http.StatusText(http.RequestCheckTokenError))
+			response.SetCode(http.RequestTokenNotFount)
+			response.SetMsg(http.StatusText(http.RequestTokenNotFount))
 			http.SendFailureRep(c, response)
 			return
 
 		}
 
-		// TEST
-		if token != "API_TOKEN" {
+		if claims, err := util.ParseToken(token); err != nil {
+			errFlag = http.RequestCheckTokenError
+		} else if time.Now().Unix() > claims.ExpiresAt {
+			errFlag = http.RequestCheckTokenTimeOut
+		} else {
+			// 合法
+			// 设置登录信息到token里面
+			session.UserName = claims.Username
+			session.Password = claims.Password
+			c.Set("Session", session)
+		}
+		if errFlag > constants.ZERO {
 			c.Abort()
-			response.SetCode(http.RequestCheckTokenError)
-			response.SetMsg(http.StatusText(http.RequestCheckTokenError))
+			response.SetCode(errFlag)
+			response.SetMsg(http.StatusText(errFlag))
 			http.SendFailureRep(c, response)
 			return
 		}
+
 		c.Next()
 	}
 

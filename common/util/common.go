@@ -1,8 +1,10 @@
 package util
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/globalsign/mgo/bson"
 	"reflect"
+	"tinyUrl/domain/dto"
 )
 
 const (
@@ -120,4 +122,16 @@ func FiltrationData(data map[string]interface{}, field []string) map[string]inte
 		}
 	}
 	return resultMap
+}
+
+func GetSession(ctx *gin.Context) *dto.Session {
+	var (
+		session *dto.Session
+	)
+	if s, ok := ctx.Get("session"); ok {
+		if session, ok = s.(*dto.Session); ok {
+			return session
+		}
+	}
+	return nil
 }

@@ -1,0 +1,154 @@
+{"level":"INFO","ts":"2019-06-15 13:00:54","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 132.232.140.107:6379"}
+{"level":"INFO","ts":"2019-06-15 13:00:55","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@132.232.140.107:27017/admin"}
+{"level":"ERROR","ts":"2020-03-02 22:20:54","caller":"redis/redis.go:43","msg":"Redis Init Error: Host: 132.232.140.107:6379, Error:dial tcp 132.232.140.107:6379: connect: connection refused ","stack":"tinyUrl/config/db/redis.Init\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/config/db/redis/redis.go:43\nmain.init.0\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/main.go:18\nruntime.doInit\n\t/usr/local/go/src/runtime/proc.go:5222\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:190"}
+{"level":"INFO","ts":"2020-03-02 22:20:54","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@132.232.140.107:27017/admin"}
+{"level":"ERROR","ts":"2020-03-03 11:16:24","caller":"redis/redis.go:43","msg":"Redis Init Error: Host: 132.232.140.107:6379, Error:dial tcp 132.232.140.107:6379: connect: connection refused ","stack":"tinyUrl/config/db/redis.Init\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/config/db/redis/redis.go:43\nmain.init.0\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/main.go:18\nruntime.doInit\n\t/usr/local/go/src/runtime/proc.go:5222\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:190"}
+{"level":"INFO","ts":"2020-03-03 11:16:24","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@132.232.140.107:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:31:48","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 15:31:48","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:33:34","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/go [49e87e3a-5d21-11ea-96b4-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 15:33:34","caller":"http/http.go:154","msg":"Response [49e87e3a-5d21-11ea-96b4-8c8590c910ef] To Client: &{2002 Parameter Error, Please Check Parameter <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:34:34","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/go?tinyUrl=http://localhost:9069/123 [6d8ef1c0-5d21-11ea-96b4-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 15:34:34","caller":"http/http.go:154","msg":"Response [6d8ef1c0-5d21-11ea-96b4-8c8590c910ef] To Client: &{400 Bad Request url not found}"}
+{"level":"INFO","ts":"2020-03-03 15:35:48","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [9a000532-5d21-11ea-96b4-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:37:10","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [cac69c94-5d21-11ea-96b4-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:37:39","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 15:37:39","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:38:13","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [f0337e48-5d21-11ea-be88-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:38:33","caller":"http/http.go:154","msg":"Response [f0337e48-5d21-11ea-be88-8c8590c910ef] To Client: &{2002 Parameter Error, Please Check Parameter <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:41:02","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 15:41:02","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:41:09","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [5957d982-5d22-11ea-bfe8-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:41:13","caller":"http/http.go:154","msg":"Response [5957d982-5d22-11ea-bfe8-8c8590c910ef] To Client: &{3003 user not fount <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:52:37","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 15:52:37","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:53:00","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/register [00cdbb68-5d24-11ea-a8d7-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:53:00","caller":"http/http.go:131","msg":"Response [00cdbb68-5d24-11ea-a8d7-8c8590c910ef] To Client: &{200 OK <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:55:15","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 15:55:15","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 15:55:54","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/register [68c0c6fc-5d24-11ea-b32b-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:55:54","caller":"http/http.go:131","msg":"Response [68c0c6fc-5d24-11ea-b32b-8c8590c910ef] To Client: &{200 OK <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:56:23","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [79b970e4-5d24-11ea-b32b-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:56:23","caller":"http/http.go:156","msg":"Response [79b970e4-5d24-11ea-b32b-8c8590c910ef] To Client: &{3003 user not found <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:57:06","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [938f7bda-5d24-11ea-b32b-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 15:59:24","caller":"http/http.go:156","msg":"Response [938f7bda-5d24-11ea-b32b-8c8590c910ef] To Client: &{3003 user not found <nil>}"}
+{"level":"INFO","ts":"2020-03-03 15:59:28","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [e7fac7a6-5d24-11ea-b32b-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:09:44","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:09:44","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:09:49","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [5a347d3e-5d26-11ea-a69a-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:10:44","caller":"http/http.go:156","msg":"Response [5a347d3e-5d26-11ea-a69a-8c8590c910ef] To Client: &{3003 user not found <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:11:37","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:11:37","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:11:43","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [9e80c2d6-5d26-11ea-888a-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:12:52","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:12:52","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:13:12","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [d3a81a40-5d26-11ea-83f2-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:22:23","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:22:23","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:22:27","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [1e5ff872-5d28-11ea-a294-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:23:16","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:23:16","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:23:41","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:23:41","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:24:07","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:24:07","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:24:13","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [5da844b2-5d28-11ea-be23-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:25:15","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:25:15","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:25:20","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [850a617a-5d28-11ea-805e-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:28:41","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:28:41","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:29:56","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:29:56","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:30:40","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [443d314e-5d29-11ea-9d47-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:31:26","caller":"http/http.go:156","msg":"Response [443d314e-5d29-11ea-9d47-8c8590c910ef] To Client: &{1005 create token error <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:31:49","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:31:49","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:31:58","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [727fdf7a-5d29-11ea-ac85-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:32:41","caller":"http/http.go:156","msg":"Response [727fdf7a-5d29-11ea-ac85-8c8590c910ef] To Client: &{1005 create token error <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:33:13","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:33:13","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:33:21","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [a4123d94-5d29-11ea-99b4-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:34:05","caller":"http/http.go:156","msg":"Response [a4123d94-5d29-11ea-99b4-8c8590c910ef] To Client: &{1005 create token error <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:35:04","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:35:04","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:35:16","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [e895299a-5d29-11ea-ab08-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:35:16","caller":"http/http.go:156","msg":"Response [e895299a-5d29-11ea-ab08-8c8590c910ef] To Client: &{1005 create token error <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:35:24","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [ed2c238c-5d29-11ea-ab08-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:35:51","caller":"http/http.go:156","msg":"Response [ed2c238c-5d29-11ea-ab08-8c8590c910ef] To Client: &{1005 create token error <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:37:51","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:37:51","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:38:08","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [4f3b4652-5d2a-11ea-a23b-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:40:04","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:40:04","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:40:07","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [964aff42-5d2a-11ea-86df-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:40:43","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:40:43","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:40:48","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [ae77430a-5d2a-11ea-96d0-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:40:59","caller":"http/http.go:131","msg":"Response [ae77430a-5d2a-11ea-96d0-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTgzMjM2ODUwLCJpc3MiOiJZYVBpIn0.lmIGw-A_WYy9jNh8tNJ5pUD5fxnrmoUn1CKPS3r-GhE}"}
+{"level":"INFO","ts":"2020-03-03 16:43:10","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [02f1b9c4-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:43:10","caller":"http/http.go:156","msg":"Response [02f1b9c4-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1004 request token not found, please login first <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:43:21","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [0969c1f2-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:43:21","caller":"http/http.go:156","msg":"Response [0969c1f2-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:43:31","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [0f77af28-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:43:31","caller":"http/http.go:156","msg":"Response [0f77af28-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:43:37","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [12e64aca-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:43:37","caller":"http/http.go:156","msg":"Response [12e64aca-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:44:10","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [26d34f74-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:44:45","caller":"http/http.go:156","msg":"Response [26d34f74-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:44:47","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [3d254a48-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:45:18","caller":"http/http.go:156","msg":"Response [3d254a48-5d2b-11ea-96d0-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:45:20","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [50c827dc-5d2b-11ea-96d0-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:46:04","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:46:04","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:46:08","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [6d01cf84-5d2b-11ea-bf4e-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:46:59","caller":"http/http.go:156","msg":"Response [6d01cf84-5d2b-11ea-bf4e-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:47:02","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [8d98ba28-5d2b-11ea-bf4e-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:47:43","caller":"http/http.go:156","msg":"Response [8d98ba28-5d2b-11ea-bf4e-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:48:38","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:48:38","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:48:43","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [c9a7a16e-5d2b-11ea-bd81-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:48:43","caller":"http/http.go:131","msg":"Response [c9a7a16e-5d2b-11ea-bd81-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIn0.I_R6TCXzSoYhkUK9n4JykFGjYUtkbY-cSE0b7NWgxsY}"}
+{"level":"INFO","ts":"2020-03-03 16:48:55","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [d0ba4bf0-5d2b-11ea-bd81-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:49:25","caller":"http/http.go:156","msg":"Response [d0ba4bf0-5d2b-11ea-bd81-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:50:35","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:50:35","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:50:39","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [0e9363e4-5d2c-11ea-a706-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:51:01","caller":"http/http.go:131","msg":"Response [0e9363e4-5d2c-11ea-a706-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTgzMzQ1NDQxLCJpc3MiOiJZYVBpIn0.Ed9kHRTIbZXvMO6bj6csSkm72J2fQtGSeRRYVWQA5E4}"}
+{"level":"INFO","ts":"2020-03-03 16:54:20","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [92457eb6-5d2c-11ea-a706-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:55:03","caller":"http/http.go:156","msg":"Response [92457eb6-5d2c-11ea-a706-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:59:24","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 16:59:24","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 16:59:34","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [4ddd9a3c-5d2d-11ea-9e00-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 16:59:37","caller":"http/http.go:156","msg":"Response [4ddd9a3c-5d2d-11ea-9e00-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"INFO","ts":"2020-03-03 16:59:41","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [51e57fb4-5d2d-11ea-9e00-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 16:59:41","caller":"http/http.go:131","msg":"Response [51e57fb4-5d2d-11ea-9e00-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTAwMCwiaXNzIjoiWWFQaSJ9.p2Dmb_Amn0KwGztTVkfRKZZMVLMT5xlTFjpeG6yIw3s}"}
+{"level":"INFO","ts":"2020-03-03 16:59:49","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [56450f16-5d2d-11ea-9e00-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 17:00:56","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 17:00:56","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 17:01:05","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [839acfa0-5d2d-11ea-b5b9-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:01:05","caller":"http/http.go:131","msg":"Response [839acfa0-5d2d-11ea-b5b9-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTAwMCwiaXNzIjoiWWFQaSJ9.p2Dmb_Amn0KwGztTVkfRKZZMVLMT5xlTFjpeG6yIw3s}"}
+{"level":"INFO","ts":"2020-03-03 17:01:16","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [8aafe4c4-5d2d-11ea-b5b9-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:01:17","caller":"http/http.go:131","msg":"Response [8aafe4c4-5d2d-11ea-b5b9-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTAwMCwiaXNzIjoiWWFQaSJ9.p2Dmb_Amn0KwGztTVkfRKZZMVLMT5xlTFjpeG6yIw3s}"}
+{"level":"INFO","ts":"2020-03-03 17:01:18","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [8b65eee0-5d2d-11ea-b5b9-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:01:18","caller":"http/http.go:131","msg":"Response [8b65eee0-5d2d-11ea-b5b9-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTAwMCwiaXNzIjoiWWFQaSJ9.p2Dmb_Amn0KwGztTVkfRKZZMVLMT5xlTFjpeG6yIw3s}"}
+{"level":"INFO","ts":"2020-03-03 17:01:19","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [8beeca58-5d2d-11ea-b5b9-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:01:19","caller":"http/http.go:131","msg":"Response [8beeca58-5d2d-11ea-b5b9-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTAwMCwiaXNzIjoiWWFQaSJ9.p2Dmb_Amn0KwGztTVkfRKZZMVLMT5xlTFjpeG6yIw3s}"}
+{"level":"INFO","ts":"2020-03-03 17:04:54","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 17:04:54","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 17:05:02","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [10d22602-5d2e-11ea-b0ce-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:05:02","caller":"http/http.go:131","msg":"Response [10d22602-5d2e-11ea-b0ce-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTgzMzQ2MzAyLCJpc3MiOiJZYVBpIn0.y91OSD7uuGfu2tXs9zLTNOK7fmoB_KdgMhbMpWuUtOs}"}
+{"level":"INFO","ts":"2020-03-03 17:05:08","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [149f9be8-5d2e-11ea-b0ce-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 17:05:34","caller":"http/http.go:156","msg":"Response [149f9be8-5d2e-11ea-b0ce-8c8590c910ef] To Client: &{2002 Parameter Error, Please Check Parameter <nil>}"}
+{"level":"INFO","ts":"2020-03-03 17:06:15","caller":"redis/redis.go:47","msg":"Redis Init Success, Host: 127.0.0.1:6379"}
+{"level":"INFO","ts":"2020-03-03 17:06:15","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}
+{"level":"INFO","ts":"2020-03-03 17:06:19","caller":"middleware/middleware.go:38","msg":"POST request /v1/api/login [3f1b54de-5d2e-11ea-b599-8c8590c910ef] from [::1]: {\n\t\"userName\":\"admin\",\n\t\"password\":\"adminadmin\"\n}"}
+{"level":"INFO","ts":"2020-03-03 17:06:19","caller":"http/http.go:131","msg":"Response [3f1b54de-5d2e-11ea-b599-8c8590c910ef] To Client: &{200 OK eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbmFkbWluIiwiZXhwIjoxNTgzMjI2Mzk5LCJpc3MiOiJZYVBpIn0.Qzr2hvazUZKmOJMoKFoJd5l74t9HvjkICecPeyu9jdM}"}
+{"level":"INFO","ts":"2020-03-03 17:06:26","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [43566da4-5d2e-11ea-b599-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 17:06:26","caller":"http/http.go:156","msg":"Response [43566da4-5d2e-11ea-b599-8c8590c910ef] To Client: &{2002 Parameter Error, Please Check Parameter <nil>}"}
+{"level":"INFO","ts":"2020-03-03 17:06:29","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [45382afe-5d2e-11ea-b599-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 17:06:29","caller":"http/http.go:156","msg":"Response [45382afe-5d2e-11ea-b599-8c8590c910ef] To Client: &{2002 Parameter Error, Please Check Parameter <nil>}"}
+{"level":"INFO","ts":"2020-03-03 17:07:49","caller":"middleware/middleware.go:38","msg":"GET request /v1/api/tiny/url/info [74a7ac10-5d2e-11ea-b599-8c8590c910ef] from [::1]: "}
+{"level":"INFO","ts":"2020-03-03 17:07:49","caller":"http/http.go:156","msg":"Response [74a7ac10-5d2e-11ea-b599-8c8590c910ef] To Client: &{1002 Token Is Not Exists, Please Login <nil>}"}
+{"level":"ERROR","ts":"2020-03-04 09:49:20","caller":"redis/redis.go:43","msg":"Redis Init Error: Host: 127.0.0.1:6379, Error:dial tcp 127.0.0.1:6379: connect: connection refused ","stack":"tinyUrl/config/db/redis.Init\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/config/db/redis/redis.go:43\nmain.init.0\n\t/Users/yangping/WorkSpace/GoWorkSpace/tinyUrl/main.go:19\nruntime.doInit\n\t/usr/local/go/src/runtime/proc.go:5222\nruntime.main\n\t/usr/local/go/src/runtime/proc.go:190"}
+{"level":"INFO","ts":"2020-03-04 09:49:20","caller":"mongo/mongodb.go:58","msg":"Init MongoDB Success: mongodb://yangping:123456@127.0.0.1:27017/admin"}

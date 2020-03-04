@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package secure;
-
-message Encrypt {
-	string cipherversion = 1;
-	string ciphertext = 2;
-}
